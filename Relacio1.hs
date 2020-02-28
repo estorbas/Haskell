@@ -51,3 +51,30 @@ ordena3 (x,y,z)
   | (z < y) && (y < x) = (z,y,x)
 
 --- Ejercicio 4---
+
+max2 :: Ord a => a -> a -> a
+max2 x y
+  | x > y = x
+  | otherwise = y
+
+p1_max2 :: Ord a => a -> a -> Bool
+p1_max2 x y
+   | max2 x y == x = True
+   | max2 x y == y = True
+   | otherwise = False
+
+p2_max2 :: Ord a => a -> a -> Bool
+p2_max2 x y
+  | max2 x y >= x = True
+  | max2 x y >= y = True
+  | otherwise = False
+
+p3_max2 :: Ord a => a -> a -> Bool
+p3_max2 x y
+  | max2 x y == x && x >= y = True
+  | otherwise = False
+
+p4_max2 :: Ord a => a -> a -> Bool
+p4_max2 x y
+  | max2 x y == y && y >= x = True
+  | otherwise = False
