@@ -130,11 +130,30 @@ eurosAPesetas x = x * unEuro
 
 --- Ejercicio 10 ---
 
+
+raiz :: Double -> Double -> Double -> Double
+raiz a b c = sqrt ((b*b)-(4*a*c))
+
 raices :: Double -> Double -> Double -> (Double, Double)
 raices a b c
-  | raiz > 0 = (solucion1,solucion2)
+  | raiz >= 0 = (solucion1,solucion2)
   | otherwise =  error "Raices no reales"
     where
-      raiz = sqrt (-4) * a * c
-      solucion1 = ((-b + raiz)/(2*a))
-      solucion2 =((-b - raiz)/(2*a))
+      raiz = sqrt ((b*b)-(4*a*c))
+      solucion1 = (-b + raiz)/(2*a)
+      solucion2 = (-b - raiz)/(2*a)
+
+--- Ejercicio 11 ---
+
+esMultiplo :: Integer -> Integer -> Bool
+esMultiplo x y
+  | mod x y == 0 = True
+  | otherwise = False
+
+
+--- Ejercicio 15 ---
+
+factorial :: Integer -> Integer
+factorial x
+  | x == 0 = 1
+  | otherwise = factorial (x-1) * x
