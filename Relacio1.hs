@@ -117,3 +117,24 @@ p_descomponer x = x>=0 ==> h*3600 + m*60 + s == x
                             where (h,m,s) = descomponer x
 
 --- Ejercicio 8 ---
+
+unEuro :: Double
+unEuro = 166.386
+
+pesetasAEuros :: Double -> Double
+pesetasAEuros x =  x / unEuro
+
+eurosAPesetas :: Double -> Double
+eurosAPesetas x = x * unEuro
+
+
+--- Ejercicio 10 ---
+
+raices :: Double -> Double -> Double -> (Double, Double)
+raices a b c
+  | raiz > 0 = (solucion1,solucion2)
+  | otherwise =  error "Raices no reales"
+    where
+      raiz = sqrt (-4) * a * c
+      solucion1 = ((-b + raiz)/(2*a))
+      solucion2 =((-b - raiz)/(2*a))
