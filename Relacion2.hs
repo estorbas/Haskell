@@ -56,3 +56,5 @@ maximoYresto  xs = masGrande xs []
     masGrande (x:y:xs) resto
       | (y > x)  = masGrande (y:xs) (x:resto)
       | otherwise = masGrande (x:xs) (y:resto)
+
+--- modificar lo anterior--
