@@ -72,3 +72,18 @@ reparte [x] = ([x],[])
 reparte (x:y:xs) = ( x:izq, y:der )
   where
     (izq, der) = reparte xs
+
+--- Ejercicio 4 ---
+
+-- Falta que lo haga para todos los casos, no encuentra la solucion si entra en comprobar,
+-- solo detecta si hay repetidos, pero no sale True si no hay repetidos
+
+distintos :: Eq a => [a] -> Bool
+distintos [] = True
+distintos [x] = True
+distintos (x:xs) = comprobar x xs
+  where
+    comprobar x (y:xs)
+      | x /= y = comprobar x xs
+      | x == y = False
+      | otherwise = True
