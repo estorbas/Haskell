@@ -38,6 +38,12 @@ filtrado p (x:xs)
   | p x = x : filtrado p xs
   | otherwise = filtrado p xs
 
+
+--Plegado de listas--
+
+sumarPlegado :: (Num a) => a -> a -> a
+sumarPlegado x y = x + y
+
 --- Ejercicio 1 ---
 
 data Direction = North | South | East | West
@@ -57,4 +63,12 @@ maximoYresto  xs = masGrande xs []
       | (y > x)  = masGrande (y:xs) (x:resto)
       | otherwise = masGrande (x:xs) (y:resto)
 
---- modificar lo anterior--
+
+--- Ejercicio 3 ---
+
+reparte :: [a] -> ([a],[a])
+reparte [] = ([], [])
+reparte [x] = ([x],[])
+reparte (x:y:xs) = ( x:izq, y:der )
+  where
+    (izq, der) = reparte xs
